@@ -24,6 +24,14 @@ Caso a senha digitada não se enquadre em todas as validações o retorno será 
 
 * [.Net 5](https://dotnet.microsoft.com/download/dotnet/5.0)
 
+## Teste
+
+Hospedado para teste da aplicação. A requisição deve ser feita como exemplo abaixo:
+
+* dereklima93-001-site1.etempurl.com/password/{password}
+
+Exemplo prático:
+http://dereklima93-001-site1.etempurl.com/password/123Testand@
 
 ## Autor
 
