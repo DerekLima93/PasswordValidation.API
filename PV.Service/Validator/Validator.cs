@@ -11,44 +11,24 @@ namespace PV.Domain
     {
         public bool ValidateCount(string password)
         {
-            if (password.Length <= 8)
-            {
-                return false;
-            }
-
-            return true;
+            return password.Length > 8;
         }
 
         public bool ValidateDigit(string password)
         {
-            if (password.ToCharArray().Where(x => Char.IsDigit(x)).Count() <= 0)
-            {
-                return false;
-            }
-
-            return true;
+            return password.ToCharArray().Where(x => Char.IsDigit(x)).Count() > 0;
         }
 
         public bool ValidateLower(string password)
         {
-            if (password.ToCharArray().Where(x => Char.IsLower(x)).Count() <= 0)
-            {
-                return false;
-            }
-
-            return true;
+            return password.ToCharArray().Where(x => Char.IsLower(x)).Count() > 0;
         }
 
         public bool ValidateRepeated(string password)
         {
             var repeatedChars = password.ToCharArray().GroupBy(x => x).Where(y => y.Count() > 1);
 
-            if (repeatedChars.Count() > 0)
-            {
-                return false;
-            }
-
-            return true;
+            return repeatedChars.Count() <= 0;
         }
 
         public bool ValidateSpecial(string password)
@@ -56,22 +36,12 @@ namespace PV.Domain
             string pattern = @"^(?=.*[!@#$%^&()-+])";
             Regex expression = new(pattern);
 
-            if (!expression.Match(password).Success)
-            {
-                return false;
-            }
-
-            return true;
+            return expression.Match(password).Success;
         }
 
         public bool ValidateUpper(string password)
         {
-            if (password.ToCharArray().Where(x => Char.IsUpper(x)).Count() <= 0)
-            {
-                return false;
-            }
-
-            return true;
+            return password.ToCharArray().Where(x => Char.IsUpper(x)).Count() > 0;
         }
     }
 }

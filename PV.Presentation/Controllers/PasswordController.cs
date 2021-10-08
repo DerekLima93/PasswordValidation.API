@@ -17,9 +17,9 @@ namespace PV.Presentation.Controllers
         /// <returns>True|False</returns>
         [HttpGet]
         [Route("password/{password}")]
-        public IActionResult Get([Required]string password)
+        public IActionResult Get([Required] string password)
         {
-            if (password== null)
+            if (password == null)
             {
                 return NotFound();
             }
